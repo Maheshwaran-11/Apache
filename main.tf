@@ -1,7 +1,9 @@
  provisioner "remote-exec" {
     inline = [
-      "sudo yum -y install httpd && sudo systemctl start httpd",
-      "echo '<h1><center>My Test Website With Help From Terraform Provisioner</center></h1>' > index.html",
-      "sudo mv index.html /var/www/html/"
+             sudo -i
+             yum install httpd -y
+             systemctl start httpd
+             systemctl enable httpd
+             echo "Learning Terraform is Fun !!!">/var/www/html/index.html
     ]
  }
