@@ -29,7 +29,7 @@ resource "aws_subnet" "privsub" {
   }
 }
 
-resource "aws_internetgateway" "tigw" {
+resource "aws_internet_gateway" "tigw" {
      vpc_id = aws_vpc.myvpc.id
 
   tags = {
@@ -68,7 +68,7 @@ resource "aws_nat_gateway" "tnat" {
     
     route {
       cidr_block = "0.0.0.0/0"
-      gateway_id = aws_nat_gateway_tnat.id
+      gateway_id = aws_nat_gateway.tnat.id
     }
   tags = {
     Name = "privateRT"
